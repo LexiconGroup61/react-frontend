@@ -1,0 +1,19 @@
+#site-footer {
+    border-top: 1px solid #444;
+    margin: 40px 0;
+    padding-top: 60px;
+}
+
+#site-header ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+#site-header li {
+    padding: 10px 30px;
+}
+
+#site-header {
+    margin: 0 auto;
+}
