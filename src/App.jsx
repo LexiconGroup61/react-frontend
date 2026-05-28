@@ -22,8 +22,11 @@ function App() {
             cart = {shoppingCart}
         />
         <Main switcher={switcher} addToCart={addToCart}/>
-
-        <Footer />
+        <div className="relative">
+        <p className="xl:text-slate-500 text-orange-600 sm:font-bold text-3xl">Test text</p>
+        <p className="text-slate-500 font-bold text-xl underline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab cupiditate dolorum error eveniet libero magni numquam, qui quia temporibus! Aliquam amet, veritatis?</p>
+        </div>
+            <Footer />
     </>
   )
 }
