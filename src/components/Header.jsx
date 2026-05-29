@@ -10,7 +10,7 @@ function Header ({logo, switching, search, cart}) {
 
                 <ul>
                     <li onClick={() => switching(1)}>About</li>
-                    <li onClick={() => switching(2)}>Contact</li>
+                    <li onClick={() => switching(2)}>Book search</li>
                     <li onClick={() => switching(3)}>Products</li>
                 </ul>
                 <input onClick={(choice) => search(choice)}/>
