@@ -1,5 +1,8 @@
 import axios from "axios";
-import {useEffect, useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
+import Header from "./Header.jsx";
+import shoppingCart from "./ShoppingCart.jsx";
+
 
 const BookSearch = () => {
 
@@ -10,13 +13,21 @@ const BookSearch = () => {
         axios.get(search)
             .then(response => setBooks(response.data.xsearch.list))
             .catch(error => console.log(error))
-    }, [search])
+    },[search]);
+
+    useLayoutEffect(() => {
+
+    })
+
 
     return (
-        <div>
-            <h2>Book search</h2>
-            {books.map(book => <p key={book.publisher}>{book.title}</p>)}
-        </div>
+        <>
+            <div>
+                <h2>Book search</h2>
+                {books.map(book => <p key={book.publisher}>{book.title}</p>)}
+            </div>
+        </>
+
     );
 };
 

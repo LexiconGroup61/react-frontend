@@ -1,7 +1,8 @@
 import ShoppingCart from "./ShoppingCart.jsx";
+import {Link, NavLink} from "react-router";
 
 
-function Header ({logo, switching, search, cart}) {
+function Header ({logo, cart}) {
 
     return (
         <div id="site-header" className="flex">
@@ -9,11 +10,16 @@ function Header ({logo, switching, search, cart}) {
             <nav>
 
                 <ul>
-                    <li onClick={() => switching(1)}>Spread</li>
-                    <li onClick={() => switching(2)}>Book search</li>
-                    <li onClick={() => switching(3)}>Products</li>
+                    <li>
+                        <NavLink to="/spread">Spread</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/booksearch">Book search</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/products">Products</NavLink>
+                    </li>
                 </ul>
-                <input onClick={(choice) => search(choice)}/>
             </nav>
             <ShoppingCart cart={cart}/>
         </div>

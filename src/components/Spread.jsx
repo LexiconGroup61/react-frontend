@@ -1,3 +1,8 @@
+import Header from "./Header.jsx";
+import Main from "./Main.jsx";
+import Footer from "./Footer.jsx";
+import shoppingCart from "./ShoppingCart.jsx";
+import {Outlet} from "react-router";
 
 const Spread = () => {
 
@@ -41,9 +46,12 @@ const Spread = () => {
 
 
     return (
-        <div>
-            <button onClick={testSpread5}>Spread test</button>
-        </div>
+        <>
+            <div>
+                <button onClick={testSpread5}>Spread test</button>
+                <Outlet />
+            </div>
+        </>
     );
 };
 
