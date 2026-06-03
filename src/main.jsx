@@ -8,6 +8,7 @@ import Spread from "./components/Spread.jsx";
 import BookSearch from "./components/BookSearch.jsx";
 import ShoppingCart from "./components/ShoppingCart.jsx";
 import Products from "./components/Products.jsx";
+import AddProduct from "./components/AddProduct.jsx";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,12 @@ const router = createBrowserRouter([
             {
                 path: "products",
                 Component: Products
+            },
+            {
+                path: "addproduct",
+                Component: AddProduct
             }
+
         ]
     }
 ])
