@@ -1,10 +1,14 @@
 import { useForm } from "react-hook-form";
 
-const AddProduct = () => {
+const AddProduct = ({products, setProducts}) => {
     const { register, handleSubmit } = useForm();
     
     const onSubmit = (data) => {
-        console.log(data);
+        const newProducts = [
+            ...products,
+            {...data}
+        ]
+        setProducts(newProducts);
     }
     
     return (
