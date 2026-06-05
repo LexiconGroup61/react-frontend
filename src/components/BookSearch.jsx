@@ -8,8 +8,14 @@ const BookSearch = () => {
 
     const [search, setSearch] = useState("https://api.libris.kb.se/xsearch?query=forf:(Richard+Rorty)&format=json");
     const [books, setBooks] = useState([]);
-    const [firstname, setFirstname] = useState("Klaus");
-    const [lastname, setLastname] = useState("Rifbjerg");
+    const [author, setAuthor] = useState({
+        firstname: "Klaus",
+        lastname: "Rifbjerg",
+        location: {
+            city: "Vienna",
+            continent: "Europe"
+        }
+    });
 
     useEffect(() => {
         axios.get(search)
@@ -19,8 +25,7 @@ const BookSearch = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
-        setSearch(`https://api.libris.kb.se/xsearch?query=forf:(${firstname}+${lastname})&format=json`)
+        setSearch(`https://api.libris.kb.se/xsearch?query=forf:(${author.firstname}+${author.lastname})&format=json`)
     }
 
 
@@ -30,10 +35,32 @@ const BookSearch = () => {
                 <h2>Book search</h2>
                 <form className="p-3 bg-green-300" onSubmit={handleSubmit}>
                     <label htmlFor="firstname">First name:</label>
-                    <input type="text" id="firstname" onChange={e => setFirstname(e.target.value)} value={firstname}/>
+                    <input type="text" id="firstname" onChange={e => setAuthor({
+                        ...author,
+                        firstname: e.target.value
+                    })} value={author.firstname}/>
                     <label htmlFor="lastname">Last name:</label>
-                    <input type="text" id="lastname" onChange={e => setLastname(e.target.value)} value={lastname}/>
-                    <input className="bg-green-700 text-white p-2" type="submit" value="Search"/>
+                    <input type="text" id="lastname" onChange={e => setAuthor({
+                        ...author,
+                        lastname: e.target.value
+                    })} value={author.lastname}/>
+                    <label htmlFor="city">City:</label>
+                    <input type="text" id="city" onChange={e => setAuthor({
+                        ...author,
+                        location: {
+                            ...author.location,
+                            city: e.target.value
+                        }
+                    })} value={author.location.city}/>
+                    <label htmlFor="continent">Continent:</label>
+                    <input type="text" id="continent" onChange={e => setAuthor({
+                        ...author,
+                        location: {
+                            ...author.location,
+                            continent: e.target.value
+                        }
+                    })} value={author.location.continent}/>
+                    <input className="bg-green-700 text-white p-2" type="submit" value="Change name"/>
                 </form>
                 {books.map(book => <p key={book.publisher}>{book.title}</p>)}
             </div>

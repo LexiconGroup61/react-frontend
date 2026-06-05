@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 import {number, object, string } from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 
-const AddProduct = () => {
-
+const AddProduct = ({products, setProducts}) => {
+    
     const schema = object({
         name: string().required(),
         description: string().required(),
@@ -18,7 +18,11 @@ const AddProduct = () => {
 
 
     const onSubmit = (data) => {
-        console.log(data);
+        const newProducts = [
+            ...products,
+            {...data}
+        ]
+        setProducts(newProducts);
     }
     
     return (
