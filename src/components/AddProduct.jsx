@@ -1,9 +1,13 @@
 import { useForm } from "react-hook-form";
 import {number, object, string } from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
+import {useRef} from "react";
 
 const AddProduct = ({products, setProducts}) => {
-    
+
+    const productId = useRef(21);
+    const componentRef = useRef();
+
     const schema = object({
         name: string().required(),
         description: string().required(),
@@ -16,17 +20,23 @@ const AddProduct = ({products, setProducts}) => {
         resolver: yupResolver(schema)
     });
 
+    const handleFocus = () => {
+        componentRef.current.focus();
+    }
 
     const onSubmit = (data) => {
         const newProducts = [
             ...products,
-            {...data}
-        ]
+            {...data, id: productId.current}
+        ];
+        productId.current = productId.current + 1;
+
         setProducts(newProducts);
     }
     
     return (
         <div className="bg-slate-200 p-5">
+            {/* eslint-disable-next-line react-hooks/refs */}
             <form className="flex flex-row" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col">
                     <label>Name:</label>
@@ -53,8 +63,9 @@ const AddProduct = ({products, setProducts}) => {
                 </div>
                 <div className="flex flex-col">
                     <label>Src:</label>
-                    <input className="border m-1" type="text" {...register("src")} />
+                    <input ref={componentRef} className="border m-1" type="text" {...register("src")} />
                 </div>
+                <button onClick={handleFocus}>Focus image source</button>
                 <input type="submit" value="Register new product"/>
             </form>
             

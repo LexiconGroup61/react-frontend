@@ -5,10 +5,14 @@ import Footer from "./components/Footer.jsx";
 import {useState} from "react";
 import Main from "./components/Main.jsx";
 import {Outlet} from "react-router";
+import {useProductState} from "./hooks/useProductState.js";
+import Products from "./components/Products.jsx";
 
 function App() {
     const [switcher, setSwitcher] = useState(1);
     const [shoppingCart, setShoppingCart] = useState(0);
+
+
 
     const addToCart = (id) => {
         setShoppingCart( shoppingCart + id )

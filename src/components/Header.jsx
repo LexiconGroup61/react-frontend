@@ -19,9 +19,6 @@ function Header ({logo, cart}) {
                     <li>
                         <NavLink to="/products">Products</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/addproduct">Add product</NavLink>
-                    </li>
                 </ul>
             </nav>
             <ShoppingCart cart={cart}/>

@@ -4,7 +4,7 @@ export const products = [
         description: "Pastel-colored candy hearts stamped with sweet little messages. A Valentine's Day classic with a chalky, melt-in-your-mouth texture and fruity flavors.",
         price: 3.99,
         category: "candy",
-        src: "1.png"
+        src: "8.png"
     },
     {
         name: "Sour Neon Worms",
@@ -32,14 +32,14 @@ export const products = [
         description: "A wild medley of fruit-shaped and round candies bursting with tropical flavors. Includes banana, grape, cherry, and citrus pieces in vivid, juicy colors.",
         price: 5.99,
         category: "candy",
-        src: "5.png"
+        src: "6.png"
     },
     {
         name: "Bubblegum Spheres",
         description: "Smooth, round bubblegum balls in classic pastel shades of pink, blue, yellow, and white. Long-lasting flavor and satisfying chew in every bite-sized ball.",
         price: 3.49,
         category: "candy",
-        src: "6.png"
+        src: "5.png"
     },
     {
         name: "Starburst Fruit Chews",
@@ -53,7 +53,7 @@ export const products = [
         description: "A rainbow assortment of small jelly beans in dozens of flavors. Glossy, jewel-toned shells give way to a soft center bursting with true-to-life fruit taste.",
         price: 6.49,
         category: "candy",
-        src: "8.png"
+        src: "1.png"
     },
     {
         name: "Tropical Diced Fruit Candy",
@@ -88,14 +88,14 @@ export const products = [
         description: "A jumbo assortment of translucent gummy bears in cherry, orange, lemon, apple, and raspberry. Soft, chewy, and irresistibly snackable.",
         price: 5.49,
         category: "candy",
-        src: "13.png"
+        src: "14.png"
     },
     {
         name: "Speckled Mini Chocolate Eggs",
         description: "Pastel-speckled mini chocolate eggs with a crisp candy shell and creamy chocolate interior. A springtime favorite perfect for Easter hunts and gifting.",
         price: 6.99,
         category: "candy",
-        src: "14.png"
+        src: "13.png"
     },
     {
         name: "Sour Patch & Jelly Bean Mix",

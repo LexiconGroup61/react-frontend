@@ -67,12 +67,7 @@ body {
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
 
-}
 
 h1 {
   font-size: 56px;

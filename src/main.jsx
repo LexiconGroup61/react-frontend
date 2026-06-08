@@ -6,7 +6,6 @@ import {createBrowserRouter} from "react-router";
 import {RouterProvider} from "react-router/dom";
 import Spread from "./components/Spread.jsx";
 import BookSearch from "./components/BookSearch.jsx";
-import ShoppingCart from "./components/ShoppingCart.jsx";
 import Products from "./components/Products.jsx";
 import AddProduct from "./components/AddProduct.jsx";
 
