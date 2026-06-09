@@ -2,6 +2,7 @@ import { products as prod } from "../data/products.js"
 import Card from "./Card.jsx";
 import {useReducer, useState} from "react";
 import AddProduct from "./AddProduct.jsx";
+import {useProductStore} from "../stores/useProductStore.js";
 // import {useProductState} from "../hooks/useProductState.js";
 
 const initialState =
@@ -30,7 +31,9 @@ const Products = ({addToCart}) => {
     const [ stateValue1, actionToChangeState] = useState();
     const [stateValue2, dispatch] = useReducer(reducer, initialState);
 
-
+    const products2 = useProductStore(state => state.products);
+    const addProduct = useProductStore(state => state.addProduct);
+    addProduct({ id: 1});
     // const productList = useProductState();
 
     const deleteProduct = (name) => {
