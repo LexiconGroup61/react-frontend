@@ -2,6 +2,8 @@ import { products as prod } from "../data/products.js"
 import Card from "./Card.jsx";
 import {useReducer, useState} from "react";
 import AddProduct from "./AddProduct.jsx";
+import {useAtom} from "jotai";
+import {productAtom} from "../atoms/productAtom.js";
 // import {useProductState} from "../hooks/useProductState.js";
 
 const initialState =
@@ -30,14 +32,14 @@ const Products = ({addToCart}) => {
     const [ stateValue1, actionToChangeState] = useState();
     const [stateValue2, dispatch] = useReducer(reducer, initialState);
 
-
+    const [productsAtom, setProductsAtom] = useAtom(productAtom);
     // const productList = useProductState();
 
     const deleteProduct = (name) => {
-        const reducedProducts = products.filter(
+        const reducedProducts = productsAtom.filter(
             (product) => product.name !== name
         );
-        setProducts(reducedProducts);
+        setProductsAtom(reducedProducts);
     }
     return (
 
@@ -50,7 +52,7 @@ const Products = ({addToCart}) => {
             <button onClick={() => console.log(products)}>Console log</button>
             <AddProduct products={products} setProducts={setProducts} />
             <div className="grid grid-cols-5">
-                {products?.map(product => <Card deleteProduct={deleteProduct} product={product} addToCart={addToCart}/>)}
+                {productsAtom?.map(product => <Card deleteProduct={deleteProduct} product={product} addToCart={addToCart}/>)}
             </div>
         </div>
     </>
