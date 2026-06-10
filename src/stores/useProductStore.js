@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import {createJSONStorage, persist} from "zustand/middleware/persist";
+import {createJSONStorage, persist} from "zustand/middleware";
 
 export const useProductStore = create()(
     persist(

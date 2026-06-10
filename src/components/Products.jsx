@@ -5,6 +5,7 @@ import AddProduct from "./AddProduct.jsx";
 import {useProductStore} from "../stores/useProductStore.js";
 import {useAtom} from "jotai";
 import {productAtom} from "../atoms/productAtom.js";
+import { Button } from "@/components/ui/button";
 // import {useProductState} from "../hooks/useProductState.js";
 
 const initialState =
@@ -51,8 +52,8 @@ const Products = ({addToCart}) => {
         <div id="site-products">
             <h1>Products</h1>
             <h2>{stateValue2.price}</h2>
-            <button className="bg-green-700 text-white text-2xl" onClick={() => dispatch({ type: "increase_price"})}>Increase</button>
-            <button className="bg-yellow-700 text-white text-2xl" onClick={() => dispatch({ type: "decrease_price"})}>Decrease</button>
+            <Button size="lg" onClick={() => dispatch({ type: "increase_price"})}>Increase</Button>
+            <Button variant="destructive" size="lg" onClick={() => dispatch({ type: "decrease_price"})}>Decrease</Button>
             <button onClick={() => console.log(products)}>Console log</button>
             <AddProduct products={products} setProducts={setProducts} />
             <div className="grid grid-cols-5">
