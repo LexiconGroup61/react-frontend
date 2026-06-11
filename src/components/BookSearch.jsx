@@ -1,7 +1,8 @@
 import axios from "axios";
 import {useEffect, useLayoutEffect, useState} from "react";
-import Header from "./Header.jsx";
+import HeaderReference from "./HeaderReference.jsx";
 import shoppingCart from "./ShoppingCart.jsx";
+import BlogPosts from "@/components/BlogPosts.jsx";
 
 
 const BookSearch = () => {
@@ -32,6 +33,7 @@ const BookSearch = () => {
     return (
         <>
             <div>
+                <BlogPosts />
                 <h2>Book search</h2>
                 <form className="p-3 bg-green-300" onSubmit={handleSubmit}>
                     <label htmlFor="firstname">First name:</label>

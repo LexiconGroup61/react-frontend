@@ -1,63 +1,14 @@
 
 import './App.css'
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import {useState} from "react";
-import Main from "./components/Main.jsx";
-import {Outlet} from "react-router";
-import {useProductState} from "./hooks/useProductState.js";
-import Products from "./components/Products.jsx";
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger
-} from "@/components/ui/drawer.jsx";
-import {Button} from "@/components/ui/button.jsx";
+import {Link} from "react-router";
 
 function App() {
-    const [switcher, setSwitcher] = useState(1);
-    const [shoppingCart, setShoppingCart] = useState(0);
-
-
-
-    const addToCart = (id) => {
-        setShoppingCart( shoppingCart + id )
-    }
 
   return (
     <>
-        <Header
-            logo = "Library"
-            cart = {shoppingCart}
-        />
-        <Drawer direction="right">
-            <DrawerTrigger>Open</DrawerTrigger>
-            <DrawerContent>
-                <DrawerHeader>
-                    <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-                    <DrawerDescription>This action cannot be undone.</DrawerDescription>
-                </DrawerHeader>
-                <DrawerFooter>
-                    <Button>Submit</Button>
-                    <DrawerClose>
-                        <Button variant="outline">Cancel</Button>
-                    </DrawerClose>
-                </DrawerFooter>
-            </DrawerContent>
-        </Drawer>
-        <div id="site-main">
-            <Outlet />
-        </div>
-        <div className="relative">
-        <p className="xl:text-slate-500 text-orange-600 sm:font-bold text-3xl">Test text</p>
-        <p className="text-slate-500 font-bold text-xl underline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab cupiditate dolorum error eveniet libero magni numquam, qui quia temporibus! Aliquam amet, veritatis?</p>
-        </div>
-            <Footer />
+        <Link to="/shopping">Shopping</Link>
+        <Link to="/reference">Reference</Link>
+
     </>
   )
 }

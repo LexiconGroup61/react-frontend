@@ -1,8 +1,8 @@
 import ShoppingCart from "./ShoppingCart.jsx";
-import {Link, NavLink} from "react-router";
+import { NavLink} from "react-router";
 
 
-function Header ({logo, cart}) {
+function HeaderReference ({logo, cart}) {
 
     return (
         <div id="site-header" className="flex">
@@ -16,14 +16,10 @@ function Header ({logo, cart}) {
                     <li>
                         <NavLink to="/booksearch">Book search</NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/products">Products</NavLink>
-                    </li>
                 </ul>
             </nav>
-            <ShoppingCart cart={cart}/>
         </div>
     )
 }
 
-export default Header;
+export default HeaderReference;

@@ -1,4 +1,4 @@
-import Header from "./Header.jsx";
+import HeaderReference from "./HeaderReference.jsx";
 import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
 import shoppingCart from "./ShoppingCart.jsx";

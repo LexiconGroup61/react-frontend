@@ -1,4 +1,4 @@
-import {StrictMode} from 'react'
+import { StrictMode} from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from "./App.jsx";
@@ -8,11 +8,17 @@ import Spread from "./components/Spread.jsx";
 import BookSearch from "./components/BookSearch.jsx";
 import Products from "./components/Products.jsx";
 import AddProduct from "./components/AddProduct.jsx";
+import Shopping from "@/components/Shopping.jsx";
+import Reference from "@/components/Reference.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
         Component: App,
+    },
+    {
+        path: "/reference",
+        Component: Reference,
         children: [
             {
                 path: "spread",
@@ -28,6 +34,13 @@ const router = createBrowserRouter([
                 path: "booksearch",
                 Component: BookSearch
             },
+
+        ]
+    },
+    {
+        path: "/shopping",
+        Component: Shopping,
+        children: [
             {
                 path: "products",
                 Component: Products
@@ -36,13 +49,14 @@ const router = createBrowserRouter([
                 path: "addproduct",
                 Component: AddProduct
             }
-
         ]
     }
 ])
 
+
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+        <RouterProvider router={router} />
   </StrictMode>,
 )
