@@ -11,7 +11,7 @@ import AddProduct from "./components/AddProduct.jsx";
 import Shopping from "@/components/Shopping.jsx";
 import Reference from "@/components/Reference.jsx";
 import Kanban from "@/components/Kanban.jsx";
-import Table from "@/components/Table.jsx";
+import DataTable from "@/components/DataTable.jsx";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/table",
-        Component: Table
+        Component: DataTable
     },
     {
         path: "/reference",

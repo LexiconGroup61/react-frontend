@@ -1,4 +1,12 @@
 import {createColumnHelper, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
 
 const data = [
     { id: 1, title: "First item", year: 1996 },
@@ -24,7 +32,7 @@ const columns = [
     })
 ]
 
-const Table = () => {
+const DataTable = () => {
 
     const table = useReactTable({
         data,
@@ -33,31 +41,31 @@ const Table = () => {
     })
 
     return (
-            <table>
-                <thead>
+            <Table>
+                <TableHeader>
                 { table.getHeaderGroups().map((headerGroup) => (
-                    <tr>
+                    <TableRow>
                         {headerGroup.headers.map((header) => (
-                            <th >
+                            <TableHead className="text-right">
                                 { flexRender(header.column.columnDef.header, header.getContext())}
-                            </th>
+                            </TableHead>
                         ))}
-                    </tr>
+                    </TableRow>
                 ))}
-                </thead>
-                <tbody>
+                </TableHeader>
+                <TableBody>
                 { table.getRowModel().rows.map((rowModel) => (
-                    <tr>
+                    <TableRow>
                     {rowModel.getVisibleCells().map((cell) => (
-                        <td>
+                        <TableCell className="text-right">
                             { flexRender(cell.column.columnDef.cell, cell.getContext())}
-                        </td>
+                        </TableCell>
                     ))}
-                </tr>))}
-                </tbody>
-            </table>
+                </TableRow>))}
+                </TableBody>
+            </Table>
 
     );
 };
 
-export default Table;
+export default DataTable;
