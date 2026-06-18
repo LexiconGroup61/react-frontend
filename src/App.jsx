@@ -9,6 +9,7 @@ function App() {
         <Link to="/shopping">Shopping</Link>
         <Link to="/reference">Reference</Link>
         <Link to="/kanban">Kanban</Link>
+        <Link to="/table">Table</Link>
     </>
   )
 }

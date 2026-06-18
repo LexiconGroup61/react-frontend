@@ -17,21 +17,29 @@ import HeaderShopping from "@/components/HeaderShopping.jsx";
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Shopping = () => {
-    gsap.registerPlugin(useGSAP);
+    gsap.registerPlugin(useGSAP, ScrollTrigger);
 
     const [switcher, setSwitcher] = useState(1);
     const [shoppingCart, setShoppingCart] = useState(0);
     const [date, setDate] = useState(1);
 
     const headline = useRef();
+    const scroll = useRef();
 
     useGSAP(() => {
         gsap.to(headline.current, {
-            x: 50
+            x: 50,
         })
+
+        gsap.to("#scroll-trigger", {
+            y: 50
+        })
+
     }, [])
+
 
 
     const addToCart = (id) => {
@@ -62,9 +70,9 @@ const Shopping = () => {
                     </DrawerContent>
                 </Drawer>
                 <div id="site-main" >
-                    <h1 ref={headline}>Shopping</h1>
+                    <h1  ref={headline}>Shopping</h1>
                     <h2>Many things to buy</h2>
-                    <Outlet />
+                    <Outlet ref={scroll}/>
                 </div>
 
                 <Footer />

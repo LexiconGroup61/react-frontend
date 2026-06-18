@@ -11,6 +11,7 @@ import AddProduct from "./components/AddProduct.jsx";
 import Shopping from "@/components/Shopping.jsx";
 import Reference from "@/components/Reference.jsx";
 import Kanban from "@/components/Kanban.jsx";
+import Table from "@/components/Table.jsx";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     {
         path: "/kanban",
         Component: Kanban,
+    },
+    {
+        path: "/table",
+        Component: Table
     },
     {
         path: "/reference",

@@ -12,10 +12,10 @@ const Products = ({addToCart}) => {
 
     return (
         <>
-            <div id="site-products">
+            <div id="site-products" >
                 <h1>Products</h1>
                 <AddProduct products={products} setProducts={addProduct} />
-                <div className="grid grid-cols-5">
+                <div id="scroll-trigger" className="grid grid-cols-5">
                     {products?.map(product => <Card deleteProduct={deleteProduct} product={product} addToCart={addToCart}/>)}
                 </div>
             </div>
