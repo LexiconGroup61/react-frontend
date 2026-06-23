@@ -5,30 +5,37 @@ import {useState} from "react";
 
 
 const Kanban = () => {
-    const [column, setColumn] = useState(0);
+    const headings = [{
+        heading: "Backlog",
+        id: 1
+    }, {
+        heading: "To Do",
+        id: 2
+    }, {
+        heading: "Doing",
+        id: 3
+    }, {
+        heading: "Done",
+        id: 4
+    }
+    ];
+    const [column, setColumn] = useState(1);
+
     return (
         <DragDropProvider
             onDragEnd={(e) => {
                 let newId = e.operation.target?.id.toString();
                 let num = newId.split("-")[0];
                 setColumn(parseInt(num))
-
             }}
         >
-            { column === 0 &&  <Ticket />}
             <div className="flex flex-row">
-                <Column id="1" heading="Backlog">
-                    { column === 1 &&  <Ticket />}
-                </Column>
-                <Column id="2" heading="To do">
-                    { column === 2 &&  <Ticket />}
-                </Column>
-                <Column id="3" heading="Doing">
-                    { column === 3 &&  <Ticket />}
-                </Column>
-                <Column id="4" heading="Done">
-                    { column === 4 &&  <Ticket />}
-                </Column>
+                {headings.map((item) => (
+                    <Column id={item.id} heading={item.heading}>
+                        { column === item.id &&  <Ticket />}
+                    </Column>
+                ))}
+
 
             </div>
         </DragDropProvider>
