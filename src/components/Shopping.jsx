@@ -2,7 +2,7 @@
 import {Outlet} from "react-router";
 import {useState} from "react";
 import {ProductContext} from "@/contexts/ProductContext.jsx";
-import HeaderReference from "@/components/HeaderReference.jsx";
+// import HeaderReference from "@/components/HeaderReference.jsx";
 import {
     Drawer, DrawerClose,
     DrawerContent,
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/drawer.jsx";
 import {Button} from "@/components/ui/button.jsx";
 import Footer from "@/components/Footer.jsx";
-import HeaderShopping from "@/components/HeaderShopping.jsx";
+// import HeaderShopping from "@/components/HeaderShopping.jsx";
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -22,8 +22,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const Shopping = () => {
     gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-    const [switcher, setSwitcher] = useState(1);
-    const [shoppingCart, setShoppingCart] = useState(0);
+    // const [switcher, setSwitcher] = useState(1);
+    // const [shoppingCart, setShoppingCart] = useState(0);
     const [date, setDate] = useState(1);
 
     const headline = useRef();
@@ -42,18 +42,18 @@ const Shopping = () => {
 
 
 
-    const addToCart = (id) => {
-        setShoppingCart( shoppingCart + id )
-    }
+    // const addToCart = (id) => {
+    //     setShoppingCart( shoppingCart + id )
+    // }
 
 
     return (
         <>
             <ProductContext value={{date, setDate}}>
-                <HeaderShopping
-                    logo = "Library"
-                    cart = {shoppingCart}
-                />
+                {/*<HeaderShopping*/}
+                {/*    logo = "Library"*/}
+                {/*    cart = {shoppingCart}*/}
+                {/*/>*/}
                 <Drawer direction="right">
                     <DrawerTrigger>Open</DrawerTrigger>
                     <DrawerContent>

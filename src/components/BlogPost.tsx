@@ -1,5 +1,12 @@
+import React from "react";
 
-const BlogPost = ({date, author, children}) => {
+interface PostProps {
+    date: string;
+    author : string;
+    children: React.ReactElement;
+}
+
+const BlogPost = ({date, author, children} : PostProps) => {
     return (
         <div className="blog-post">
             <p className="blog-date">{date}</p>

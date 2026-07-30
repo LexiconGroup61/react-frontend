@@ -14,9 +14,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const data = [
+const startData = [
     { id: 1, title: "First item", year: 1996 },
     { id: 2, title: "Second item", year: 2008 },
     { id: 3, title: "Third item", year: 1984 },
@@ -36,25 +36,45 @@ const columnHelper = createColumnHelper();
 
 const columns = [
     columnHelper.accessor('id', {
-        header: "Id",
-        cell: info => info.getValue()
+        header: "Id"
     }),
     columnHelper.accessor('title', {
-        header: "Title",
-        cell: info => info.getValue()
+        header: "Title"
     }),
     columnHelper.accessor('year', {
-        header: "Year",
-        cell: info => info.getValue()
+        header: "Year"
 
     })
 ]
 
+const defaultColumn = {
+    cell: ({getValue, row: {index}, column: {id}, table }) => {
+        const initialValue = getValue();
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [value, setValue] = useState(initialValue);
+        const onBlur = () => {
+            table.options.meta?.updateData(index, id, value)
+        }
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useEffect(() => {
+            setValue(initialValue)}, [initialValue]
+        )
+        return <input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onBlur={onBlur}
+        />
+    }
+}
+
 const DataTable = () => {
+
+    const [data, setData] = useState(startData);
 
     const table = useReactTable({
         data,
         columns,
+        defaultColumn,
         getCoreRowModel: getCoreRowModel(),
         getSortedRowModel: getSortedRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
@@ -63,6 +83,19 @@ const DataTable = () => {
         initialState: {
             pagination: {
                 pageSize: 20,
+            }
+        },
+        meta: {
+            updateData: (rowIndex, columnId, value) => {
+                setData((old) => old.map((row, index) => {
+                    if(index === rowIndex){
+                        return {
+                            ...old[rowIndex],
+                            [columnId] : value,
+                        }
+                    }
+                    return row
+                }))
             }
         }
     })
@@ -103,14 +136,14 @@ const DataTable = () => {
                     ))}
                 </TableRow>))}
                 </TableBody>
-                <div className="flex justify-center w-100">
+            </Table>
+            <div className="flex justify-center w-100">
                 <button  className="px-10" onClick={() => table.nextPage()}>Next page</button>
                 <button className="px-10"  onClick={() => table.previousPage()}>Previous page</button>
                 <button className="px-10"  onClick={() => table.firstPage()}>First page</button>
                 <button className="px-10"  onClick={() => table.lastPage()}>Last page</button>
                 <p className="py-12">Total pages: {table.getPageCount()}</p>
-                </div>
-            </Table>
+            </div>
         </>
 
     );

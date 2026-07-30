@@ -29,7 +29,14 @@ export const apiGetCall3 = (url) => {
         .catch(error => console.log(error));
 }
 
-
+export const login = () => {
+    axios.post("/user/login?useCookies=true",
+        {
+            "email": "oswald@gmail.com",
+            "password": "?(uYca34Top"
+        }
+    ).then(response => console.log(response.data));
+}
 
 
 
